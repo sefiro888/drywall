@@ -14,10 +14,16 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css?v=8">
+<link rel="stylesheet" href="assets/css/style.css?v=2">
 
 </head>
 <body>
+
+
+<div class="intro" id="intro" aria-hidden="true">
+  <div class="intro__emblema"><span class="intro__pieza" style="--cp:polygon(0 0,100% 0,100% 34%,0 34%);--tr:0,-120px;--rot:-8deg;--d:0ms"></span><span class="intro__pieza" style="--cp:polygon(0 34%,52% 34%,52% 68%,0 68%);--tr:-140px,0;--rot:6deg;--d:70ms"></span><span class="intro__pieza" style="--cp:polygon(52% 34%,100% 34%,100% 68%,52% 68%);--tr:140px,0;--rot:-6deg;--d:70ms"></span><span class="intro__pieza" style="--cp:polygon(0 68%,100% 68%,100% 100%,0 100%);--tr:0,120px;--rot:8deg;--d:140ms"></span></div>
+  <span class="intro__linea"></span>
+</div>
 
 <header class="nav">
   <div class="demo-bar">Demostración visual sin compromiso · <b>Rodríguez Drywall</b> · textos e imágenes provisionales</div>
@@ -117,6 +123,60 @@
   </div>
 </section>
 
+<section class="dg-sec">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow">Diagnóstico en 3 preguntas</p>
+        <h2 class="sec-titulo cromo">Cuéntanos qué oyes<br>y te decimos qué hacer</h2>
+      </div>
+      <p class="lead">No todos los ruidos se resuelven igual, y algunos no se resuelven del todo. Responde tres preguntas y te damos la solución que aplicaríamos nosotros, con lo que puedes esperar de ella.</p>
+    </div>
+
+    <div class="dg" id="diagnostico">
+      <form class="dg__form">
+    <fieldset class="dg__paso" data-paso="01">
+      <legend><i>01</i>¿De dónde viene el ruido?</legend>
+      <div class="dg__ops"><button type="button" class="dg__op" data-campo="origen" data-valor="medianera"><b>Del piso o local de al lado</b><span>A través de la pared que compartimos</span></button><button type="button" class="dg__op" data-campo="origen" data-valor="arriba"><b>De arriba</b><span>Del techo: pisadas, arrastrar sillas, muebles</span></button><button type="button" class="dg__op" data-campo="origen" data-valor="calle"><b>De la calle</b><span>Tráfico, terrazas, gente</span></button><button type="button" class="dg__op" data-campo="origen" data-valor="dentro"><b>Lo generamos nosotros</b><span>Queremos que no salga al exterior</span></button></div>
+    </fieldset>
+    <fieldset class="dg__paso" data-paso="02">
+      <legend><i>02</i>¿Qué tipo de ruido es?</legend>
+      <div class="dg__ops"><button type="button" class="dg__op" data-campo="tipo" data-valor="voces"><b>Voces y televisión</b><span>Conversaciones, tele, ladridos</span></button><button type="button" class="dg__op" data-campo="tipo" data-valor="graves"><b>Música con graves</b><span>Equipo de sonido, bajos, vibración</span></button><button type="button" class="dg__op" data-campo="tipo" data-valor="impacto"><b>Golpes y pisadas</b><span>Tacones, sillas, algo que cae</span></button><button type="button" class="dg__op" data-campo="tipo" data-valor="maquina"><b>Maquinaria</b><span>Extractor, aire acondicionado, motores</span></button></div>
+    </fieldset>
+    <fieldset class="dg__paso" data-paso="03">
+      <legend><i>03</i>¿Dónde hay que actuar?</legend>
+      <div class="dg__ops"><button type="button" class="dg__op" data-campo="recinto" data-valor="vivienda"><b>Una vivienda</b><span>Piso o casa particular</span></button><button type="button" class="dg__op" data-campo="recinto" data-valor="local"><b>Un local o negocio</b><span>Bar, tienda, gimnasio, taller</span></button><button type="button" class="dg__op" data-campo="recinto" data-valor="oficina"><b>Oficina o consulta</b><span>Despacho, clínica, sala de reuniones</span></button></div>
+    </fieldset>
+        <p class="dg__pista">Elige una opción en cada bloque.</p>
+      </form>
+
+      <aside class="dg__res" aria-live="polite">
+        <div class="dg__vacio">
+          <svg viewBox="0 0 48 48" stroke="currentColor" fill="none" stroke-width="1.4" aria-hidden="true">
+            <path d="M18 16 9 22H4v10h5l9 6z" stroke-linejoin="round"/>
+            <path d="M26 16a12 12 0 0 1 0 22M30 10a19 19 0 0 1 0 34" stroke-linecap="round"/>
+          </svg>
+          <p>El resultado aparecerá aquí en cuanto respondas las tres.</p>
+        </div>
+        <div class="dg__ficha" hidden>
+          <p class="dg__eti">Solución recomendada</p>
+          <h3 class="dg__tit"></h3>
+          <p class="dg__desc"></p>
+          <dl class="dg__datos">
+            <div><dt>Mejora esperable</dt><dd class="dg__mejora"></dd></div>
+            <div><dt>Espacio que se pierde</dt><dd class="dg__espacio"></dd></div>
+            <div><dt>Plazo orientativo</dt><dd class="dg__plazo"></dd></div>
+          </dl>
+          <ul class="check dg__incluye"></ul>
+          <p class="dg__aviso"></p>
+          <a class="btn dg__wa" href="https://wa.me/34600958851" target="_blank" rel="noopener">Mandar mi caso por WhatsApp</a>
+          <p class="nota">Estimación orientativa. Antes de presupuestar vamos a escuchar el problema en el sitio: es la única forma seria de garantizar un resultado.</p>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
 <section>
   <div class="wrap">
     <p class="eyebrow">Dudas frecuentes</p>
@@ -152,6 +212,7 @@
           <li><a href="index.html">Inicio</a></li>
           <li><a href="proyectos.html">Proyectos</a></li>
           <li><a href="contacto.html">Contacto</a></li>
+          <li><a href="furgoneta.html">¿Vienes del QR?</a></li>
         </ul>
       </div>
       <div>
@@ -171,8 +232,14 @@
   </div>
 </footer>
 
+
+<nav class="barra-movil" aria-label="Contacto rápido">
+  <a class="barra-movil__tel" href="tel:+34600958851"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.3 0 .7-.2 1l-2.3 2.2z"/></svg><span>Llamar</span></a>
+  <a class="barra-movil__wa" href="https://wa.me/34600958851?text=Hola%20Rodr%C3%ADguez%20Drywall%2C%20quer%C3%ADa%20pedir%20un%20presupuesto" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.297-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0 0 20.885 3.4"/></svg><span>Consulta tu presupuesto</span></a>
+</nav>
+
 <a class="wa" href="https://wa.me/34600958851?text=Hola%20Rodr%C3%ADguez%20Drywall%2C%20quer%C3%ADa%20pedir%20un%20presupuesto" target="_blank" rel="noopener" aria-label="Consulta aquí tu presupuesto por WhatsApp"><span class="wa__ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.297-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0 0 20.885 3.4"/></svg></span><span class="wa__txt"><b>Consulta aquí</b>tu presupuesto</span></a>
 
-<script src="assets/js/main.js?v=8"></script>
+<script src="assets/js/main.js?v=2"></script>
 </body>
 </html>

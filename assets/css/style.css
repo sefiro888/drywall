@@ -516,3 +516,235 @@ footer{background:var(--grafito);border-top:1px solid var(--linea);padding-top:c
 /* la aspa de cerrar no debe quedar recortada por el bisel del boton */
 .burger[aria-expanded="true"]{clip-path:none;background:var(--carbon-alto)}
 .burger[aria-expanded="true"] span{left:16px;right:16px}
+
+/* ============================================================
+   DIAGNOSTICO DE RUIDO
+   ============================================================ */
+.dg{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(20px,3vw,44px);align-items:start}
+.dg__form{display:grid;gap:2px;background:var(--linea);margin:0}
+.dg__paso{border:0;margin:0;padding:26px clamp(18px,2.4vw,30px);background:var(--grafito)}
+.dg__paso legend{display:flex;align-items:center;gap:12px;padding:0;margin-bottom:18px;
+  font-family:var(--cond);font-weight:700;font-size:1.22rem;letter-spacing:.05em;
+  text-transform:uppercase;color:#fff}
+.dg__paso legend i{font-family:var(--mono);font-style:normal;font-size:.66rem;
+  letter-spacing:.16em;color:var(--rojo-vivo)}
+.dg__ops{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.dg__op{text-align:left;cursor:pointer;background:var(--carbon);border:1px solid transparent;
+  padding:14px 15px;color:#AEB6BC;transition:.22s;display:grid;gap:3px;
+  clip-path:polygon(0 0,100% 0,100% calc(100% - 10px),calc(100% - 10px) 100%,0 100%)}
+.dg__op b{font-family:var(--cond);font-weight:600;font-size:1.02rem;letter-spacing:.04em;
+  text-transform:uppercase;color:#fff}
+.dg__op span{font-size:.84rem;line-height:1.35;color:var(--muted)}
+.dg__op:hover{background:var(--carbon-alto);border-color:var(--linea)}
+.dg__op.on{background:var(--rojo);border-color:var(--rojo)}
+.dg__op.on b,.dg__op.on span{color:#fff}
+.dg__pista{font-family:var(--mono);font-size:.64rem;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--muted);background:var(--grafito);margin:0;padding:14px 20px}
+
+.dg__res{background:linear-gradient(180deg,var(--carbon),var(--grafito));
+  border:1px solid var(--linea);padding:clamp(24px,3vw,36px);position:sticky;top:110px}
+.dg__vacio{display:grid;place-items:center;gap:16px;text-align:center;padding:40px 10px;color:var(--muted)}
+.dg__vacio svg{width:52px;height:52px;opacity:.45}
+.dg__vacio p{margin:0;font-size:.95rem;max-width:26ch}
+.dg__eti{font-family:var(--mono);font-size:.64rem;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--rojo-vivo);margin:0 0 10px}
+.dg__tit{font-size:clamp(1.5rem,2.6vw,2rem);color:#fff;margin-bottom:12px}
+.dg__desc{color:#BFC6CC;font-size:1rem}
+.dg__datos{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--linea);
+  margin:22px 0;border:1px solid var(--linea)}
+.dg__datos div{background:var(--grafito);padding:14px 12px}
+.dg__datos dt{font-family:var(--mono);font-size:.56rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:5px}
+.dg__datos dd{margin:0;font-family:var(--cond);font-weight:700;font-size:1.02rem;
+  letter-spacing:.03em;text-transform:uppercase;color:#fff;line-height:1.2}
+.dg__incluye{margin-top:0}
+.dg__aviso{margin:20px 0 22px;padding:14px 16px;background:rgba(201,160,99,.1);
+  border-left:3px solid var(--madera);color:#CBB98F;font-size:.9rem}
+.dg__aviso:empty{display:none}
+.dg__wa{width:100%;justify-content:center;margin-bottom:14px}
+
+/* ============================================================
+   COMPARADOR DRYWALL / LADRILLO
+   ============================================================ */
+.cmp{border:1px solid var(--linea);background:var(--grafito)}
+.cmp__head{display:grid;grid-template-columns:1.15fr 1fr 1fr;gap:14px;align-items:center;
+  padding:14px clamp(16px,2vw,24px);border-bottom:1px solid var(--linea);background:var(--carbon)}
+.cmp__vs{font-family:var(--mono);font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+.cmp__eq{font-family:var(--display);font-size:1.05rem;text-transform:uppercase;letter-spacing:.03em}
+.cmp__eq--a{color:var(--rojo-vivo)}
+.cmp__eq--b{color:var(--plata)}
+.cmp__fila{border-bottom:1px solid var(--linea)}
+.cmp__fila:last-child{border-bottom:0}
+.cmp__cab{display:none}
+.cmp__barras{display:grid;grid-template-columns:1.15fr 1fr 1fr;gap:14px;align-items:center;
+  padding:16px clamp(16px,2vw,24px)}
+.cmp__lado{display:grid;gap:7px}
+.cmp__val{font-size:.88rem;color:#C3CAD0;line-height:1.3}
+.cmp__barra{display:block;height:7px;background:rgba(201,205,210,.1);overflow:hidden}
+.cmp__barra i{display:block;height:100%;width:0;transition:width 1s cubic-bezier(.2,.7,.2,1)}
+.cmp__lado--a .cmp__barra i{background:linear-gradient(90deg,var(--rojo),var(--rojo-vivo))}
+.cmp__lado--b .cmp__barra i{background:linear-gradient(90deg,#6E767C,var(--plata))}
+.cmp__fila.in .cmp__barra i{width:var(--p)}
+.cmp__nota{margin:0;padding:0 clamp(16px,2vw,24px) 20px;color:var(--muted);
+  font-size:.93rem;max-width:80ch}
+.cmp__concepto-esc{font-family:var(--cond);font-weight:700;font-size:1.04rem;letter-spacing:.05em;
+  text-transform:uppercase;color:#fff}
+
+/* ============================================================
+   FICHAS DE OBRA
+   ============================================================ */
+.obras{display:grid;gap:2px;background:var(--linea)}
+.obra-card{display:grid;grid-template-columns:.9fr 1.1fr;background:var(--grafito);
+  transition:background .3s}
+.obra-card:hover{background:var(--carbon)}
+.obra-card__img{overflow:hidden;aspect-ratio:16/10}
+.obra-card__img img{width:100%;height:100%;object-fit:cover;filter:grayscale(.4) brightness(.8);
+  transition:transform .6s cubic-bezier(.2,.7,.2,1),filter .4s}
+.obra-card:hover .obra-card__img img{transform:scale(1.06);filter:none}
+.obra-card__txt{padding:clamp(22px,3vw,38px);display:flex;flex-direction:column}
+.obra-card__meta{font-family:var(--mono);font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--rojo-vivo);margin:0 0 10px}
+.obra-card h3{font-size:clamp(1.35rem,2.4vw,1.9rem);color:#fff;margin-bottom:12px}
+.obra-card p{color:var(--muted);font-size:.96rem}
+.obra-card__tags{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:20px}
+.obra-card__tags span{font-family:var(--mono);font-size:.58rem;letter-spacing:.16em;
+  text-transform:uppercase;color:#B7BEC4;border:1px solid var(--linea);padding:5px 9px}
+
+.obra-datos{display:grid;grid-template-columns:repeat(5,1fr);gap:2px;background:var(--linea);
+  border:1px solid var(--linea);margin-bottom:clamp(34px,5vw,56px)}
+.obra-datos div{background:var(--grafito);padding:18px 16px}
+.obra-datos small{display:block;font-family:var(--mono);font-size:.56rem;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.obra-datos b{font-family:var(--cond);font-weight:700;font-size:1.06rem;letter-spacing:.03em;
+  text-transform:uppercase;color:#fff;line-height:1.2}
+.obra-cuerpo{display:grid;grid-template-columns:1.3fr .7fr;gap:clamp(26px,4vw,60px);align-items:start}
+.obra-bloque{margin-bottom:34px}
+.obra-bloque p:not(.eyebrow){color:#BFC6CC;margin:0}
+.obra-mat{background:var(--grafito);border:1px solid var(--linea);padding:clamp(22px,3vw,32px);
+  position:sticky;top:110px}
+.obra-mat h3{font-size:1.3rem;color:#fff;margin-bottom:6px}
+
+/* ============================================================
+   LIGHTBOX
+   ============================================================ */
+.gal{cursor:zoom-in}
+.lb{position:fixed;inset:0;z-index:120;background:rgba(8,9,11,.96);display:none;
+  place-items:center;padding:clamp(14px,4vw,50px);backdrop-filter:blur(6px)}
+.lb.abierto{display:grid}
+.lb__img{max-width:100%;max-height:78vh;object-fit:contain;
+  box-shadow:0 30px 80px rgba(0,0,0,.8)}
+.lb__pie{position:absolute;left:0;right:0;bottom:clamp(14px,3vw,34px);text-align:center;
+  font-family:var(--cond);font-size:1.05rem;letter-spacing:.06em;text-transform:uppercase;color:#fff}
+.lb__pie em{display:block;font-family:var(--mono);font-size:.6rem;font-style:normal;
+  letter-spacing:.2em;color:var(--rojo-vivo);margin-top:4px}
+.lb__x,.lb__nav{position:absolute;background:var(--carbon);border:1px solid var(--linea);
+  color:#fff;cursor:pointer;display:grid;place-items:center;transition:.2s}
+.lb__x{top:clamp(12px,2vw,26px);right:clamp(12px,2vw,26px);width:48px;height:48px;font-size:1.5rem;line-height:1}
+.lb__nav{top:50%;transform:translateY(-50%);width:52px;height:64px;font-size:1.5rem}
+.lb__nav--ant{left:clamp(8px,1.5vw,20px)}
+.lb__nav--sig{right:clamp(8px,1.5vw,20px)}
+.lb__x:hover,.lb__nav:hover{background:var(--rojo);border-color:var(--rojo)}
+
+/* ============================================================
+   BARRA FIJA MOVIL
+   ============================================================ */
+.barra-movil{display:none}
+.barra-movil a{display:flex;align-items:center;justify-content:center;gap:9px;
+  font-family:var(--cond);font-weight:700;font-size:.92rem;letter-spacing:.1em;
+  text-transform:uppercase;padding:15px 8px;color:#fff}
+.barra-movil svg{width:20px;height:20px;fill:currentColor;flex:none}
+.barra-movil__tel{background:var(--carbon-alto);border-top:2px solid var(--rojo)}
+.barra-movil__wa{background:#25D366;color:#07120A}
+
+/* ============================================================
+   LANDING DEL QR
+   ============================================================ */
+.qr{position:relative;min-height:100svh;display:flex;align-items:center;
+  padding-block:clamp(40px,8vw,90px);overflow:hidden}
+.qr__bg{position:absolute;inset:0;z-index:0}
+.qr__bg img{width:100%;height:100%;object-fit:cover;filter:grayscale(.5) brightness(.32) contrast(1.1)}
+.qr__bg::after{content:"";position:absolute;inset:0;
+  background:radial-gradient(90% 70% at 20% 30%,rgba(211,32,39,.3),transparent 60%),
+    linear-gradient(180deg,rgba(12,14,16,.9),rgba(12,14,16,.96))}
+.qr__in{position:relative;z-index:1;max-width:760px}
+.qr__logo{height:clamp(84px,16vw,130px);width:auto;margin-bottom:22px;
+  filter:drop-shadow(0 8px 26px rgba(0,0,0,.7))}
+.qr h1{font-size:clamp(2.4rem,9vw,5rem);margin:14px 0 18px}
+.qr .lead{margin-bottom:30px}
+.qr__ops{display:grid;gap:10px;margin-bottom:26px}
+.qr-op{display:flex;align-items:center;gap:16px;background:var(--grafito);
+  border:1px solid var(--linea);padding:16px 18px;transition:.22s;
+  clip-path:polygon(0 0,100% 0,100% calc(100% - 12px),calc(100% - 12px) 100%,0 100%)}
+.qr-op:hover{background:var(--carbon);transform:translateX(4px);border-color:var(--rojo)}
+.qr-op i{font-family:var(--mono);font-style:normal;font-size:.68rem;letter-spacing:.14em;color:var(--rojo-vivo)}
+.qr-op span{flex:1;display:grid;gap:2px}
+.qr-op b{font-family:var(--cond);font-weight:700;font-size:1.14rem;letter-spacing:.05em;
+  text-transform:uppercase;color:#fff}
+.qr-op small{font-size:.86rem;color:var(--muted)}
+.qr-op svg{width:24px;height:24px;fill:#25D366;flex:none}
+.qr__pie{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:30px}
+.qr__datos{list-style:none;display:flex;gap:clamp(18px,4vw,44px);padding:24px 0 0;margin:0;
+  border-top:1px solid var(--linea)}
+.qr__datos b{display:block;font-family:var(--display);font-size:clamp(1.5rem,4vw,2.2rem);color:var(--rojo-vivo)}
+.qr__datos span{font-family:var(--mono);font-size:.58rem;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--muted)}
+
+/* ============================================================
+   PRESENTACION DEL EMBLEMA
+   ============================================================ */
+.intro{position:fixed;inset:0;z-index:200;background:var(--negro);display:grid;place-items:center;
+  transition:opacity .5s ease,visibility .5s}
+.intro.fuera{opacity:0;visibility:hidden;pointer-events:none}
+.intro__emblema{position:relative;width:min(58vw,330px);aspect-ratio:708/562}
+.intro__pieza{position:absolute;inset:0;background:url("../img/logo.png") center/contain no-repeat;
+  clip-path:var(--cp);transform:translate(var(--tr)) rotate(var(--rot)) scale(1.08);opacity:0;
+  animation:montar .72s cubic-bezier(.16,.9,.28,1) forwards;animation-delay:var(--d)}
+@keyframes montar{to{transform:none;opacity:1}}
+.intro__linea{position:absolute;bottom:clamp(60px,14vh,130px);width:min(58vw,330px);height:2px;
+  background:rgba(201,205,210,.12);overflow:hidden}
+.intro__linea::after{content:"";position:absolute;inset:0;background:var(--rojo);
+  transform:scaleX(0);transform-origin:left;animation:cargar 1.05s ease-out forwards}
+@keyframes cargar{to{transform:scaleX(1)}}
+@media (prefers-reduced-motion:reduce){
+  .intro__pieza{animation-delay:0s;animation-duration:.01s}
+  .intro__linea{display:none}
+}
+
+/* ============================================================
+   RESPONSIVE DE LO NUEVO
+   ============================================================ */
+@media (max-width:1040px){
+  .dg{grid-template-columns:1fr}
+  .dg__res{position:static}
+  .obra-cuerpo{grid-template-columns:1fr}
+  .obra-mat{position:static}
+  .obra-datos{grid-template-columns:repeat(2,1fr)}
+  .obra-card{grid-template-columns:1fr}
+}
+@media (max-width:760px){
+  .dg__ops{grid-template-columns:1fr}
+  .dg__datos{grid-template-columns:1fr}
+  .cmp__head{grid-template-columns:1fr 1fr;gap:10px}
+  .cmp__vs{display:none}
+  .cmp__cab{display:flex;align-items:center;justify-content:space-between;width:100%;
+    background:transparent;border:0;cursor:pointer;padding:15px 16px;text-align:left}
+  .cmp__concepto{font-family:var(--cond);font-weight:700;font-size:1.04rem;letter-spacing:.05em;
+    text-transform:uppercase;color:#fff}
+  .cmp__mas{font-family:var(--display);font-size:1.3rem;color:var(--rojo-vivo);transition:transform .25s}
+  .cmp__fila.abierta .cmp__mas{transform:rotate(45deg)}
+  .cmp__barras{grid-template-columns:1fr 1fr;gap:12px;padding:0 16px 16px;display:none}
+  .cmp__nota{display:none;padding-top:0}
+  .cmp__fila.abierta .cmp__barras{display:grid}
+  .cmp__fila.abierta .cmp__nota{display:block}
+  .cmp__val{font-size:.8rem}
+  .barra-movil{display:grid;grid-template-columns:.62fr 1.38fr;position:fixed;left:0;right:0;bottom:0;
+    z-index:85;box-shadow:0 -10px 30px rgba(0,0,0,.5)}
+  .wa{display:none}
+  footer{padding-bottom:78px}
+  .lb__nav{width:44px;height:54px}
+  .lb__img{max-height:66vh}
+}
+
+/* la landing del QR va sin menu: una sola decision en pantalla */
+.landing .nav__in{display:none}
+.landing .qr{padding-top:clamp(70px,12vw,110px)}

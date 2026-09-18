@@ -15,10 +15,18 @@ Se abre con doble clic en `index.html`.
 | `aislamiento.html` | Acústico y térmico |
 | `carpinteria.html` | Carpintería a medida |
 | `electricidad.html` | Marcado como *Próximamente* |
-| `proyectos.html` | Galería filtrable y comparadores |
+| `proyectos.html` | Galería filtrable, comparadores y fichas de obra |
 | `contacto.html` | Formulario que abre WhatsApp con el mensaje redactado |
+| `obra-*.html` | Ficha de cada obra: problema, solución, materiales y plazo |
+| `furgoneta.html` | Landing del QR del vehículo, sin menú y con atajos a WhatsApp |
 
 ## Lo que tiene de particular
+
+- **Diagnóstico de ruido en tres preguntas** que devuelve la solución técnica
+  recomendada y abre WhatsApp con el caso ya redactado.
+- **Comparador drywall / ladrillo** con datos, incluidos los puntos en los que
+  el ladrillo gana.
+- **Landing del QR de la furgoneta**: presupuesto en tres toques.
 
 - **Corte interactivo del tabique**: SVG dibujado a medida donde se resalta cada
   capa del sistema (placa, perfilería, lana mineral, banda elástica, refuerzo y

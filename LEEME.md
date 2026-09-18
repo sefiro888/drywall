@@ -23,18 +23,41 @@ assets/img/logo.png    Logotipo recortado de la foto, con fondo transparente
 
 ## Componentes interactivos
 
-- **Comparador antes / después** (portada y `proyectos.html`): se arrastra con el
-  ratón, con el dedo o con las flechas del teclado. Al entrar en pantalla se
-  mueve solo un instante para que el visitante entienda que puede tocarlo.
-  Las imágenes están en `assets/img/ba/` y van por pares
-  (`*-antes.jpg` / `*-despues.jpg`). Para añadir un par nuevo basta con
-  duplicar la llamada al componente.
-- **Corte interactivo del tabique** (`drywall.html`): SVG dibujado a medida, no
-  es una imagen. Al pasar el ratón por cada capa — placa, perfilería, lana,
-  banda elástica, refuerzo y juntas — se resalta en el dibujo y cambia el texto.
-  Es el argumento técnico de la web: enseña que sabe lo que hay dentro.
+- **Presentación del emblema**: al abrir la web, el logotipo se ensambla por
+  piezas. Se muestra una sola vez por sesión y se salta si el visitante tiene
+  activado el ahorro de animaciones.
+- **Diagnóstico de ruido** (`aislamiento.html`): tres preguntas y devuelve la
+  solución que aplicaríamos, con mejora esperable, espacio que se pierde, plazo
+  y matices honestos según el caso. El botón de WhatsApp sale con el caso
+  redactado. La lógica está en `assets/js/main.js`, en el objeto `SOL`.
+- **Comparador drywall / ladrillo** (`drywall.html`): tabla con barras. Es
+  deliberadamente honesta: el ladrillo gana en cargas e inercia térmica. En
+  móvil cada fila se despliega al tocarla.
+- **Fichas de obra**: `obra-*.html`. Problema, solución, materiales, plazo y
+  galería. Ahora son ejemplos y llevan un aviso que lo dice; para añadir una
+  nueva basta con copiar un bloque en `OBRAS` del generador.
+- **Comparador antes / después** (portada, proyectos y fichas): ratón, dedo y
+  teclado. Las imágenes van por pares en `assets/img/ba/`.
+- **Corte interactivo del tabique** (`drywall.html`): SVG a medida; al pasar el
+  ratón o tocar cada capa se resalta y cambia el texto.
+- **Lightbox**: cualquier foto de galería se amplía, con flechas, Escape y
+  deslizamiento con el dedo.
+- **Barra fija inferior en móvil**: Llamar / WhatsApp. En móvil sustituye al
+  botón flotante para no duplicar la misma acción.
 
-Los enlaces a CSS y JS llevan `?v=4`. Si cambias esos archivos, sube el número
+## Landing del QR de la furgoneta
+
+`furgoneta.html` es una página aparte, sin menú, pensada para quien escanee el
+QR del vehículo: cuatro atajos que abren WhatsApp con el mensaje ya escrito.
+
+El QR ya generado apunta a ella:
+
+- `assets/img/qr-furgoneta.png` — para pantalla
+- `qr-furgoneta.svg` — vectorial, para el rotulista
+
+Si cambia el dominio, hay que regenerarlo.
+
+Los enlaces a CSS y JS llevan `?v=11`. Si cambias esos archivos, sube el número
 para que a nadie se le quede la versión antigua en caché.
 
 ## Datos que hay que confirmar con el cliente
