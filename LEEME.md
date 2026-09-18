@@ -62,8 +62,8 @@ El QR ya generado apunta a ella:
 
 Si cambia el dominio, hay que regenerarlo.
 
-Los enlaces a CSS y JS llevan `?v=15`. Si cambias esos archivos, sube el número
-para que a nadie se le quede la versión antigua en caché.
+Los enlaces a CSS y JS llevan `?v=16`. Si cambias esos archivos hay que subir
+ese número para que a nadie se le quede la versión antigua en caché.
 
 ## Datos que hay que confirmar con el cliente
 
