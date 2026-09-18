@@ -23,9 +23,14 @@ assets/img/logo.png    Logotipo recortado de la foto, con fondo transparente
 
 ## Componentes interactivos
 
-- **Presentación del emblema**: al abrir la web, el logotipo se ensambla por
-  piezas. Se muestra una sola vez por sesión y se salta si el visitante tiene
-  activado el ahorro de animaciones.
+- **Presentación del emblema**: al abrir la web, el logotipo se ensambla en
+  cuatro piezas y aparece la frase de marca. Dura unos 3,5 segundos: las piezas
+  entran hasta 1,85 s, la frase a 1,95 s, la localidad a 2,55 s y la pantalla se
+  retira a 3,45 s. **Se muestra una sola vez por sesión**: para volver a verla hay
+  que abrir una ventana nueva o una pestaña privada. Se salta entera si el
+  visitante tiene activado el ahorro de animaciones. Los tiempos están en las
+  animaciones `.intro__*` de `style.css` y en el temporizador del bloque
+  "Presentación del emblema" de `main.js`.
 - **Diagnóstico de ruido** (`aislamiento.html`): tres preguntas y devuelve la
   solución que aplicaríamos, con mejora esperable, espacio que se pierde, plazo
   y matices honestos según el caso. El botón de WhatsApp sale con el caso
@@ -57,7 +62,7 @@ El QR ya generado apunta a ella:
 
 Si cambia el dominio, hay que regenerarlo.
 
-Los enlaces a CSS y JS llevan `?v=11`. Si cambias esos archivos, sube el número
+Los enlaces a CSS y JS llevan `?v=15`. Si cambias esos archivos, sube el número
 para que a nadie se le quede la versión antigua en caché.
 
 ## Datos que hay que confirmar con el cliente

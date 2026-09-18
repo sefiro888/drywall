@@ -254,12 +254,12 @@
   setTimeout(function () {
     document.documentElement.style.overflow = '';
     salir();
-  }, 1450);
+  }, 3450);
   /* por si algo falla, nunca dejar la pantalla bloqueada */
   setTimeout(function () {
     document.documentElement.style.overflow = '';
     if (intro.parentNode) salir();
-  }, 3500);
+  }, 5200);
 })();
 
 /* ========================================================================

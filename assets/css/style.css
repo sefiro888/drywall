@@ -692,22 +692,78 @@ footer{background:var(--grafito);border-top:1px solid var(--linea);padding-top:c
 /* ============================================================
    PRESENTACION DEL EMBLEMA
    ============================================================ */
-.intro{position:fixed;inset:0;z-index:200;background:var(--negro);display:grid;place-items:center;
-  transition:opacity .5s ease,visibility .5s}
+.intro{position:fixed;inset:0;z-index:200;background:var(--negro);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:clamp(16px,3vh,30px);padding:30px 20px;
+  transition:opacity .6s ease,visibility .6s}
 .intro.fuera{opacity:0;visibility:hidden;pointer-events:none}
-.intro__emblema{position:relative;width:min(58vw,330px);aspect-ratio:708/562}
+.intro::before{content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(70% 55% at 50% 42%,rgba(211,32,39,.2),transparent 70%);
+  opacity:0;animation:aparecer 1.4s ease-out .4s forwards}
+
+.intro__emblema{position:relative;width:min(66vw,380px);aspect-ratio:708/562}
 .intro__pieza{position:absolute;inset:0;background:url("../img/logo.png") center/contain no-repeat;
-  clip-path:var(--cp);transform:translate(var(--tr)) rotate(var(--rot)) scale(1.08);opacity:0;
-  animation:montar .72s cubic-bezier(.16,.9,.28,1) forwards;animation-delay:var(--d)}
-@keyframes montar{to{transform:none;opacity:1}}
-.intro__linea{position:absolute;bottom:clamp(60px,14vh,130px);width:min(58vw,330px);height:2px;
-  background:rgba(201,205,210,.12);overflow:hidden}
+  clip-path:var(--cp);transform:translate(var(--tx),var(--ty)) rotate(var(--rot)) scale(1.12);opacity:0;
+  animation:montar 1.15s cubic-bezier(.16,.86,.3,1) forwards;animation-delay:var(--d)}
+
+/* coreografia: cada pieza entra desde un lado distinto */
+.intro__pieza:nth-child(1){--cp:polygon(0 0,100% 0,100% 34%,0 34%);
+  --tx:0;--ty:-170px;--rot:-10deg;--d:0ms}
+.intro__pieza:nth-child(2){--cp:polygon(0 34%,52% 34%,52% 68%,0 68%);
+  --tx:-190px;--ty:0;--rot:7deg;--d:260ms}
+.intro__pieza:nth-child(3){--cp:polygon(52% 34%,100% 34%,100% 68%,52% 68%);
+  --tx:190px;--ty:0;--rot:-7deg;--d:460ms}
+.intro__pieza:nth-child(4){--cp:polygon(0 68%,100% 68%,100% 100%,0 100%);
+  --tx:0;--ty:170px;--rot:10deg;--d:700ms}
+/* en el movil los recorridos se acortan para que nada salga de pantalla */
+@media (max-width:760px){
+  .intro__pieza:nth-child(1){--ty:-92px}
+  .intro__pieza:nth-child(2){--tx:-96px}
+  .intro__pieza:nth-child(3){--tx:96px}
+  .intro__pieza:nth-child(4){--ty:92px}
+  .intro__emblema{width:min(74vw,320px)}
+}
+@keyframes montar{
+  0%{opacity:0}
+  35%{opacity:1}
+  to{transform:none;opacity:1}
+}
+/* destello cromado que barre el emblema una vez montado */
+.intro__brillo{position:absolute;inset:0;pointer-events:none;opacity:0;
+  background:linear-gradient(105deg,transparent 38%,rgba(255,255,255,.55) 50%,transparent 62%);
+  background-size:260% 100%;background-position:120% 0;
+  -webkit-mask:url("../img/logo.png") center/contain no-repeat;
+  mask:url("../img/logo.png") center/contain no-repeat;
+  animation:barrer 1.1s ease-out 1.95s forwards}
+@keyframes barrer{
+  0%{background-position:120% 0;opacity:1}
+  100%{background-position:-60% 0;opacity:1}
+}
+
+.intro__claim{margin:0;text-align:center;font-family:var(--display);
+  font-size:clamp(1.25rem,4.4vw,2.1rem);line-height:1.08;text-transform:uppercase;
+  letter-spacing:.02em}
+.intro__claim span{display:block;opacity:0;transform:translateY(16px);
+  animation:subir .8s cubic-bezier(.2,.8,.25,1) forwards}
+.intro__claim span:first-child{animation-delay:1.95s;
+  background:linear-gradient(176deg,#fff 0%,#E4E8EB 30%,#9AA1A7 52%,#F2F5F6 78%,#8F979D 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent}
+.intro__claim span:last-child{animation-delay:2.2s;color:var(--rojo-vivo)}
+.intro__meta{margin:0;font-family:var(--mono);font-size:.62rem;letter-spacing:.3em;
+  text-transform:uppercase;color:var(--muted);opacity:0;
+  animation:aparecer .8s ease-out 2.55s forwards}
+@keyframes subir{to{opacity:1;transform:none}}
+@keyframes aparecer{to{opacity:1}}
+
+.intro__linea{position:relative;width:min(50vw,220px);height:2px;
+  background:rgba(201,205,210,.12);overflow:hidden;margin-top:clamp(6px,2vh,18px)}
 .intro__linea::after{content:"";position:absolute;inset:0;background:var(--rojo);
-  transform:scaleX(0);transform-origin:left;animation:cargar 1.05s ease-out forwards}
+  transform:scaleX(0);transform-origin:left;animation:cargar 3.1s cubic-bezier(.3,.8,.4,1) forwards}
 @keyframes cargar{to{transform:scaleX(1)}}
+
 @media (prefers-reduced-motion:reduce){
-  .intro__pieza{animation-delay:0s;animation-duration:.01s}
-  .intro__linea{display:none}
+  .intro__pieza,.intro__claim span,.intro__meta{animation-delay:0s;animation-duration:.01s}
+  .intro__linea,.intro__brillo,.intro::before{display:none}
 }
 
 /* ============================================================
